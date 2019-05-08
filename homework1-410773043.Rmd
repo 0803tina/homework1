@@ -54,6 +54,8 @@ major1 <- c("經濟系")
 fromEcon <- major %in% major1
 class(fromEcon)
 fromEcon
+major == major1
+class(major == major1)
 ```
 
 ### 1.2
@@ -70,9 +72,7 @@ sumEcon
 ```{r ans13}
 grade1 =  grade & major == "經濟系"
 grade1 <- as.integer(grade1)
-grade1
 grade2 = grade * grade1
-grade2
 meanEcon = sum(grade2)/sumEcon
 meanEcon
 ```
@@ -98,7 +98,7 @@ submitTime
 ### 2.2
 請將submitTime轉成台灣時區，並存在答案物件twTime。
 ```{r ans22}
-twTime <- ymd_hms(submitTime, tz="Asia/Taipei")
+twTime <- with_tz(submitTime, tz="Asia/Taipei")
 twTime
 ```
 
@@ -163,8 +163,7 @@ earnedCredit100ChosenStudent
 ```{r ans34}
 score2 = studentID == "046S6f645" & credit > 0 & schoolYear == "100"
 sum1 = sum((as.integer(score2)) * grade * credit)
-credit1 = sum(as.integer(score2) * credit)
-gpa100ChosenStudent = sum1/credit1
+gpa100ChosenStudent = sum1/credit100ChosenStudent
 gpa100ChosenStudent
 ```
 
